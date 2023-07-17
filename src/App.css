@@ -1,0 +1,27 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #f2f2f2;
+  border-radius: 50px;
+  min-height: 20rem;
+  padding: 1.5rem;
+  gap: 0.5rem;
+  background-color: #383838;
+}
+
+.deseo{
+  display:flex;
+}
+
+.deseo--completado{
+  display: flex;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
