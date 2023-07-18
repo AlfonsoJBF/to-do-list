@@ -16,12 +16,20 @@
   background-color: #383838;
 }
 
+.deseos__container{
+  border: 1px solid white;
+}
+
 .deseo{
   display:flex;
 }
 
 .deseo--completado{
   display: flex;
+}
+
+.deseo--completado p{
   text-decoration: line-through;
   opacity: 0.5;
+
 }

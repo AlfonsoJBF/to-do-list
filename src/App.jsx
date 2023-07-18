@@ -73,6 +73,8 @@ function App() {
       </div>
       
       <button onClick={handleCleanWishes}>Limpiar Completados</button>
+
+      <p>Desarrollado por <strong>{'<Alfonso JBF />'}</strong></p>
     </div>
   );
 }
