@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Deseo from './componentes/deseo';
 import './App.css';
 
@@ -8,6 +8,19 @@ function App() {
   const [nuevoDeseo, setNuevoDeseo] = useState('');
   const [deseos, setDeseos] = useState(deseosInicial);
 
+  // Cargar los deseos guardados en localStorage al iniciar la aplicación
+  useEffect(() => {
+    const storedDeseos = JSON.parse(localStorage.getItem('deseosGuardados'));
+    if (storedDeseos) {
+      setDeseos(storedDeseos);
+    }
+  }, []);
+
+  // Guardar los deseos en localStorage cada vez que se actualicen
+  useEffect(() => {
+    localStorage.setItem('deseosGuardados', JSON.stringify(deseos));
+  }, [deseos]);
+
   function handleChange(event) {
     setNuevoDeseo(event.target.value);
   }
@@ -15,7 +28,7 @@ function App() {
   function agregarDeseo() {
     if (nuevoDeseo.trim() !== '') {
       const nuevoDeseoObj = { text: nuevoDeseo, done: false };
-      setDeseos([...deseos, nuevoDeseoObj]);
+      setDeseos([nuevoDeseoObj, ...deseos]);
       setNuevoDeseo('');
     }
   }
@@ -58,7 +71,7 @@ function App() {
           />
         ))}
       </div>
-
+      
       <button onClick={handleCleanWishes}>Limpiar Completados</button>
     </div>
   );
